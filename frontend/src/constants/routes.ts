@@ -1,5 +1,5 @@
 import {
-  ProductListPage,
+  ProductList,
 } from '../pages';
 import { FC } from 'react';
 
@@ -17,6 +17,6 @@ export const ROUTES = {
 export const MAIN_ROUTES: IRoute[] = [
   {
     path: ROUTES.PRODUCT.LIST,
-    element: ProductListPage
+    element: ProductList
   },
 ];

@@ -5,7 +5,7 @@ import { ProductFormModal } from '../Form';
 import { useSnackbar } from 'notistack';
 import { FC, useEffect, useState } from 'react';
 
-export const ProductListPage: FC = () => {
+export const ProductList: FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [visibleFormModal, setVisibleFormModal] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<number>(0);
