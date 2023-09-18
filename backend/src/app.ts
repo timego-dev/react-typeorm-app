@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import fallback from 'express-history-api-fallback';
 
+import router from './routes';
 import { connect } from './typeorm';
 
 connect().then(() => {
@@ -27,6 +28,7 @@ app.use(express.static(`uploads`));
 
 console.log(`${__dirname}/public`);
 
+app.use('/api', router);
 app.use(fallback('index.html', { root }));
 app.use('*', (req, res) => {
   console.log('ROUTE NOT FOUND');
