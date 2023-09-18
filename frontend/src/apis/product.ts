@@ -10,15 +10,15 @@ const create = (project): Promise<any> => {
   return Http.post(ENDPOINTS.PROJECT.BASE, project);
 };
 
-const update = (id: string, data): Promise<any> => {
+const update = (id: number, data): Promise<any> => {
   return Http.put(ENDPOINTS.PROJECT.ID(id), data);
 };
 
-const getById = (id: string): Promise<any> => {
+const getById = (id: number): Promise<any> => {
   return Http.get(ENDPOINTS.PROJECT.ID(id));
 };
 
-const remove = (id: string) => {
+const remove = (id: number) => {
   return Http.delete(ENDPOINTS.PROJECT.ID(id));
 };
 

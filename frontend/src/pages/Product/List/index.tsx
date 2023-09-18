@@ -63,7 +63,7 @@ export const ProductListPage: FC = () => {
     },
   ];
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: number) => {
     ProductApi.remove(id)
       .then((res) => {
         fetchProducts();
@@ -74,7 +74,7 @@ export const ProductListPage: FC = () => {
       });
   };
 
-  const handleEdit = (id: string) => {
+  const handleEdit = (id: number) => {
     const product = products.find(({ id: productId }) => productId === id);
     if (product) {
       setSelectedProduct(product);

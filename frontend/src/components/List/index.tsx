@@ -23,15 +23,15 @@ interface ITableProps {
   orderBy?: string;
   onSort?: (property: string) => void;
   onNew?: () => void;
-  onCopy?: (id: string) => void;
-  onEdit?: (id: string) => void;
-  onView?: (id: string, tokenId?: string) => void;
-  onDelete?: (id: string) => void;
+  onCopy?: (id: number) => void;
+  onEdit?: (id: number) => void;
+  onView?: (id: number, tokenId?: string) => void;
+  onDelete?: (id: number) => void;
   onArchive?: (e: React.MouseEvent<HTMLElement>, row: any) => void;
   onFavorite?: (e: React.MouseEvent<HTMLElement>, row: any) => void;
   selectedRows?: any[];
   numSelected?: number;
-  onRowClick?: (id: string) => void;
+  onRowClick?: (id: number) => void;
   OnChangeChecked?: (isChangeCheckedAll: boolean, row?: any) => void;
 }
 
@@ -63,7 +63,7 @@ export const List = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [openDelete, setOpenDelete] = useState<string | null>(null);
+  const [openDelete, setOpenDelete] = useState<number | null>(null);
 
   const handlePageChange = (event: unknown, newPage: number) => {
     if (onPageChange) {
@@ -95,10 +95,10 @@ export const List = ({
 
   const handleOkDelete = () => {
     setOpenDelete(null);
-    onDelete && onDelete(openDelete as string);
+    onDelete && onDelete(openDelete as number);
   };
 
-  const handleOpenDelete = (id: string) => {
+  const handleOpenDelete = (id: number) => {
     setOpenDelete(id);
   };
 

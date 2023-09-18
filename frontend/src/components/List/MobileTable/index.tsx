@@ -14,14 +14,14 @@ interface IMobileListProps {
   pageNumber?: number;
   onPageChange?: (page: number) => void;
   onNew?: () => void;
-  onDelete?: (id: string) => void;
-  onEdit?: (id: string) => void;
-  onView?: (id: string) => void;
+  onDelete?: (id: number) => void;
+  onEdit?: (id: number) => void;
+  onView?: (id: number) => void;
   onArchive?: (e: React.MouseEvent<HTMLElement>, row: any) => void;
   onFavorite?: (e: React.MouseEvent<HTMLElement>, row: any) => void;
   selectedRows?: any[];
   numSelected?: number;
-  onRowClick?: (id: string) => void;
+  onRowClick?: (id: number) => void;
   OnChangeChecked?: (isChangeCheckedAll: boolean, row?: any) => void;
 }
 
@@ -40,15 +40,15 @@ export const MobileList: FC<IMobileListProps> = ({
   onEdit,
   onView
 }: IMobileListProps) => {
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: number) => {
     if (onDelete) onDelete(id);
   };
 
-  const handleEdit = (id: string) => {
+  const handleEdit = (id: number) => {
     if (onEdit) onEdit(id);
   };
 
-  const handleView = (id: string) => {
+  const handleView = (id: number) => {
     if (onView) onView(id);
   };
 
@@ -66,17 +66,17 @@ export const MobileList: FC<IMobileListProps> = ({
                       {(onDelete || onEdit || onView) && (
                         <Box display="flex" alignItems="center">
                           {onDelete && (
-                            <IconButton onClick={() => handleDelete(row?.id as string)}>
+                            <IconButton onClick={() => handleDelete(row?.id)}>
                               <Delete />
                             </IconButton>
                           )}
                           {onEdit && (
-                            <IconButton onClick={() => handleEdit(row?.id as string)}>
+                            <IconButton onClick={() => handleEdit(row?.id)}>
                               <Edit />
                             </IconButton>
                           )}
                           {onView && (
-                            <IconButton onClick={() => handleView(row?.id as string)}>
+                            <IconButton onClick={() => handleView(row?.id)}>
                               <Visibility />
                             </IconButton>
                           )}
