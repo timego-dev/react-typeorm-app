@@ -1,4 +1,4 @@
-# TimeGo Git Client
+# Test
 
 This repository contains the source code of a React application.
 

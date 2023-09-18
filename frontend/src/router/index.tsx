@@ -18,7 +18,7 @@ const AppRouter: FC = () => {
             }
           />
         ))}
-        <Route path="*" element={<Navigate to={ROUTES.DASHBOARD} />} />
+        <Route path="*" element={<Navigate to={ROUTES.PRODUCT.LIST} />} />
       </Routes>
     </Router>
   );

@@ -14,7 +14,8 @@ export class ProductController {
 
       res.json({
         list,
-        totalCount
+        totalCount,
+        msg: 'success'
       });
     } catch (err) {
       next(err);
@@ -25,7 +26,10 @@ export class ProductController {
     try {
       const product = await this.productService.createProduct(req.body);
 
-      res.status(201).json(product);
+      res.status(201).json({
+        product,
+        msg: 'Product created successfully',
+      });
     } catch (err) {
       next(err);
     }
@@ -35,9 +39,9 @@ export class ProductController {
     try {
       const { id } = req.params;
 
-      const products = await this.productService.getProductById(+id);
+      const product = await this.productService.getProductById(+id);
 
-      res.status(200).json(products);
+      res.status(200).json(product);
     } catch (err) {
       next(err);
     }
@@ -47,7 +51,9 @@ export class ProductController {
     try {
       const { id } = req.params;
       await this.productService.updateProduct(+id, req.body);
-      res.status(200).json();
+      res.status(200).json({
+        msg: 'Product updated successfully'
+      });
     } catch  (err) {
       next(err);
     }
@@ -57,7 +63,9 @@ export class ProductController {
     try {
       const { id } = req.params;
       await this.productService.removeProduct(+id);
-      res.status(200).json();
+      res.status(200).json({
+        msg: 'Product removed successfully'
+      });
     } catch (err) {
       next(err);
     }
